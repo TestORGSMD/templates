@@ -4,7 +4,7 @@ services:
     volumes:
       - directus_database:/var/lib/postgresql/data
     networks:
-      - dokploy-network
+      - nexploy-network
     environment:
       POSTGRES_USER: "directus"
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
@@ -27,7 +27,7 @@ services:
       start_interval: 5s
       start_period: 30s
     networks:
-      - dokploy-network
+      - nexploy-network
 
   directus:
     image: directus/directus:11.0.2

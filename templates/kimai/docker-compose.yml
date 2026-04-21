@@ -17,7 +17,7 @@ services:
       db:
         condition: service_healthy
     networks:
-      - dokploy-network
+      - nexploy-network
   db:
     image: mariadb:10.11
     restart: unless-stopped
@@ -40,10 +40,10 @@ services:
       retries: 5
       start_period: 30s
     networks:
-      - dokploy-network
+      - nexploy-network
 
 networks:
-  dokploy-network:
+  nexploy-network:
     external: true
 
 volumes:

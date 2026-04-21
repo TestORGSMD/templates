@@ -11,7 +11,7 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     networks:
-      - dokploy-network
+      - nexploy-network
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:5.2.1

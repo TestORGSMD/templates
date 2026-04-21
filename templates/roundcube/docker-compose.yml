@@ -10,8 +10,8 @@ services:
       - ROUNDCUBEMAIL_DEFAULT_HOST=${DEFAULT_HOST}
       - ROUNDCUBEMAIL_SMTP_SERVER=${SMTP_SERVER}
     networks:
-      - dokploy-network
+      - nexploy-network
 
 networks:
-  dokploy-network:
+  nexploy-network:
     external: true

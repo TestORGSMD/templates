@@ -18,7 +18,7 @@ services:
     image: mysql:8.0
     restart: always
     networks:
-      - dokploy-network
+      - nexploy-network
     environment:
       MYSQL_ROOT_PASSWORD: example
     volumes:

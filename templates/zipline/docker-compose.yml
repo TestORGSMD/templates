@@ -3,7 +3,7 @@ services:
   postgres:
     image: postgres:15
     networks:
-      - dokploy-network
+      - nexploy-network
     restart: unless-stopped
     environment:
       - POSTGRES_USER=postgres

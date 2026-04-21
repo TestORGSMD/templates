@@ -13,7 +13,7 @@ services:
       - REDIS_URL=redis://redis:6379
     restart: unless-stopped
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - docmost:/app/data/storage
 
@@ -25,7 +25,7 @@ services:
       - POSTGRES_PASSWORD
     restart: unless-stopped
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - db_docmost_data:/var/lib/postgresql/data
 
@@ -33,12 +33,12 @@ services:
     image: redis:7.2-alpine
     restart: unless-stopped
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - redis_docmost_data:/data
 
 networks:
-  dokploy-network:
+  nexploy-network:
     external: true
 
 volumes:

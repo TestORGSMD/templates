@@ -4,7 +4,7 @@ services:
   slash-app:
     image: yourselfhosted/slash:latest
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - slash-app-data:/var/opt/slash
     environment:
@@ -18,7 +18,7 @@ services:
   slash-postgres:
     image: postgres:16-alpine
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - slash-postgres-data:/var/lib/postgresql/data
     environment:
@@ -33,7 +33,7 @@ services:
     restart: unless-stopped
 
 networks:
-  dokploy-network:
+  nexploy-network:
     external: true
 
 volumes:

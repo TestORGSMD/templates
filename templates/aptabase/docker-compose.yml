@@ -8,7 +8,7 @@ services:
       POSTGRES_USER: aptabase
       POSTGRES_PASSWORD: sTr0NGp4ssw0rd
     networks:
-      - dokploy-network
+      - nexploy-network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U aptabase"]
       interval: 10s
@@ -28,7 +28,7 @@ services:
         soft: 262144
         hard: 262144
     networks:
-      - dokploy-network
+      - nexploy-network
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:8123 || exit 1"]
       interval: 10s

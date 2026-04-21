@@ -21,12 +21,12 @@ services:
     volumes:
       - pg-data:/var/lib/postgresql/data
     networks:
-      - dokploy-network
+      - nexploy-network
   redis:
     image: redis
     restart: unless-stopped
     networks:
-      - dokploy-network
+      - nexploy-network
   web:
     image: glitchtip/glitchtip:v4.0
     depends_on: *default-depends_on
@@ -45,14 +45,14 @@ services:
     volumes:
       - uploads:/code/uploads
     networks:
-      - dokploy-network
+      - nexploy-network
   migrate:
     image: glitchtip/glitchtip:v4.0
     depends_on: *default-depends_on
     command: "./manage.py migrate"
     environment: *default-environment
     networks:
-      - dokploy-network
+      - nexploy-network
 
 volumes:
   pg-data:

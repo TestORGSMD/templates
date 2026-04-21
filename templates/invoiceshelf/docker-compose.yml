@@ -4,7 +4,7 @@ services:
   invoiceshelf-postgres:
     image: postgres:15
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - invoiceshelf-postgres-data:/var/lib/postgresql/data
     environment:
@@ -20,7 +20,7 @@ services:
   invoiceshelf-app:
     image: invoiceshelf/invoiceshelf:latest
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - invoiceshelf-app-data:/data
       - invoiceshelf-app-conf:/conf
@@ -50,7 +50,7 @@ services:
         condition: service_healthy
 
 networks:
-  dokploy-network:
+  nexploy-network:
     external: true
 
 volumes:

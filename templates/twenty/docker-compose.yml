@@ -5,7 +5,7 @@ services:
     image: ubuntu
     user: root
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - twenty-server-local-data:/tmp/server-local-data
       - twenty-docker-data:/tmp/docker-data
@@ -17,7 +17,7 @@ services:
   twenty-server:
     image: twentycrm/twenty:latest
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - twenty-server-local-data:/app/packages/twenty-server/${STORAGE_LOCAL_PATH:-.local-storage}
       - twenty-docker-data:/app/docker-data
@@ -46,7 +46,7 @@ services:
   twenty-worker:
     image: twentycrm/twenty:latest
     networks:
-      - dokploy-network
+      - nexploy-network
     command: ["yarn", "worker:prod"]
     environment:
       PG_DATABASE_URL: postgres://${DB_USER}:${DB_PASSWORD}@twenty-postgres:5432/twenty
@@ -66,7 +66,7 @@ services:
   twenty-postgres:
     image: postgres:16-alpine
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - twenty-postgres-data:/var/lib/postgresql/data
     environment:
@@ -83,7 +83,7 @@ services:
   twenty-redis:
     image: redis:latest
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - twenty-redis-data:/data
     healthcheck:
@@ -94,7 +94,7 @@ services:
     restart: always
 
 networks:
-  dokploy-network:
+  nexploy-network:
     external: true
 
 volumes:

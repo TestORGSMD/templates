@@ -4,7 +4,7 @@ services:
     ports:
       - 5432
     networks:
-      - dokploy-network
+      - nexploy-network
     environment:
       - POSTGRES_PASSWORD=listmonk
       - POSTGRES_USER=listmonk
@@ -21,7 +21,7 @@ services:
   setup:
     image: listmonk/listmonk:v3.0.0
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - ../files/config.toml:/listmonk/config.toml
     depends_on:

@@ -8,7 +8,7 @@ services:
     volumes:
       - windmill-postgres-data:/var/lib/postgresql/data
     networks:
-      - dokploy-network
+      - nexploy-network
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: windmill
@@ -21,7 +21,7 @@ services:
   windmill-server:
     image: ghcr.io/windmill-labs/windmill:main
     networks:
-      - dokploy-network
+      - nexploy-network
     restart: unless-stopped
     environment:
       - DATABASE_URL=${DATABASE_URL}
@@ -43,7 +43,7 @@ services:
           memory: 2048M
     restart: unless-stopped
     networks:
-      - dokploy-network
+      - nexploy-network
     environment:
       - DATABASE_URL=${DATABASE_URL}
       - MODE=worker
@@ -66,7 +66,7 @@ services:
           memory: 128M
     restart: unless-stopped
     networks:
-      - dokploy-network
+      - nexploy-network
     environment:
       - DATABASE_URL=${DATABASE_URL}
       - MODE=worker
@@ -83,7 +83,7 @@ services:
     image: ghcr.io/windmill-labs/windmill-lsp:latest
     restart: unless-stopped
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - windmill-lsp-cache:/root/.cache
 
@@ -91,7 +91,7 @@ services:
     image: ghcr.io/windmill-labs/caddy-l4:latest
     restart: unless-stopped
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - ../files/Caddyfile:/etc/caddy/Caddyfile
     environment:
@@ -101,7 +101,7 @@ services:
       - windmill-lsp
 
 networks:
-  dokploy-network:
+  nexploy-network:
     external: true
 
 volumes:

@@ -5,7 +5,7 @@ services:
     image: activepieces/activepieces:0.35.0
     restart: unless-stopped
     networks:
-      - dokploy-network
+      - nexploy-network
     depends_on:
       postgres:
         condition: service_healthy
@@ -36,7 +36,7 @@ services:
     image: postgres:14
     restart: unless-stopped
     networks:
-      - dokploy-network
+      - nexploy-network
     environment:
       POSTGRES_DB: activepieces
       POSTGRES_PASSWORD: ${AP_POSTGRES_PASSWORD}
@@ -53,7 +53,7 @@ services:
     image: redis:7
     restart: unless-stopped
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - redis_data:/data
     healthcheck:

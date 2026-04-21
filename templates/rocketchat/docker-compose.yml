@@ -29,7 +29,7 @@ services:
       MONGODB_ENABLE_JOURNAL: true
       ALLOW_EMPTY_PASSWORD: yes
     networks:
-      - dokploy-network
+      - nexploy-network
 
 volumes:
   mongodb_data: { driver: local }

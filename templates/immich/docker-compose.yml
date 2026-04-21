@@ -4,7 +4,7 @@ services:
   immich-server:
     image: ghcr.io/immich-app/immich-server:v1.121.0
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - immich-library:/usr/src/app/upload
       - /etc/localtime:/etc/localtime:ro
@@ -39,7 +39,7 @@ services:
   immich-machine-learning:
     image: ghcr.io/immich-app/immich-machine-learning:v1.121.0
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - immich-model-cache:/cache
     environment:
@@ -56,7 +56,7 @@ services:
   immich-redis:
     image: redis:6.2-alpine
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - immich-redis-data:/data
     healthcheck:
@@ -69,7 +69,7 @@ services:
   immich-database:
     image: tensorchord/pgvecto-rs:pg14-v0.2.0
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - immich-postgres:/var/lib/postgresql/data
     environment:
@@ -101,7 +101,7 @@ services:
     restart: always
 
 networks:
-  dokploy-network:
+  nexploy-network:
     external: true
 
 volumes:

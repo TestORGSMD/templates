@@ -5,7 +5,7 @@ x-base-config: &base-config
   volumes:
     - chatwoot-storage:/app/storage
   networks:
-    - dokploy-network
+    - nexploy-network
   environment:
     - FRONTEND_URL=${FRONTEND_URL}
     - SECRET_KEY_BASE=${SECRET_KEY_BASE}
@@ -52,7 +52,7 @@ services:
     volumes:
       - chatwoot-postgres-data:/var/lib/postgresql/data
     networks:
-      - dokploy-network
+      - nexploy-network
     environment:
       - POSTGRES_DB=${POSTGRES_DATABASE}
       - POSTGRES_USER=${POSTGRES_USERNAME}
@@ -64,10 +64,10 @@ services:
     volumes:
       - chatwoot-redis-data:/data
     networks:
-      - dokploy-network
+      - nexploy-network
 
 networks:
-  dokploy-network:
+  nexploy-network:
     external: true
 
 volumes:

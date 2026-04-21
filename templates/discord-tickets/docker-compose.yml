@@ -5,7 +5,7 @@ services:
     image: mysql:8
     restart: unless-stopped
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - tickets-mysql-data:/var/lib/mysql
     environment:
@@ -26,7 +26,7 @@ services:
         condition: service_healthy
     restart: unless-stopped
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - tickets-app-data:/home/container/user
       - /etc/timezone:/etc/timezone:ro
@@ -48,7 +48,7 @@ services:
       SUPER: ${SUPER_USERS}
 
 networks:
-  dokploy-network:
+  nexploy-network:
     external: true
 
 volumes:

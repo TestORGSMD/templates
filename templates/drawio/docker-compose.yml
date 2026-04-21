@@ -5,7 +5,7 @@ services:
     ports:
       - "8080"
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - fonts_volume:/usr/share/fonts/drawio
   image-export:
@@ -13,7 +13,7 @@ services:
     ports:
       - "8000"
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - fonts_volume:/usr/share/fonts/drawio
     environment:
@@ -29,7 +29,7 @@ services:
       - plantuml-server
       - image-export
     networks:
-      - dokploy-network
+      - nexploy-network
     environment:
       RAWIO_SELF_CONTAINED: 1
       DRAWIO_USE_HTTP: 1
@@ -55,7 +55,7 @@ services:
       DRAWIO_GITLAB_URL: ${DRAWIO_GITLAB_URL}
       DRAWIO_CLOUD_CONVERT_APIKEY: ${DRAWIO_CLOUD_CONVERT_APIKEY}
 networks:
-  dokploy-network:
+  nexploy-network:
     external: true
 
 volumes:

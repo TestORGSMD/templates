@@ -4,7 +4,7 @@ services:
     volumes:
       - ollama:/root/.ollama
     networks:
-      - dokploy-network
+      - nexploy-network
     pull_policy: always
     tty: true
     restart: unless-stopped

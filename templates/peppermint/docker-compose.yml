@@ -5,7 +5,7 @@ services:
     image: postgres:latest
     restart: always
     networks:
-      - dokploy-network
+      - nexploy-network
     volumes:
       - peppermint-postgres-data:/var/lib/postgresql/data
     environment:
@@ -22,7 +22,7 @@ services:
     image: pepperlabs/peppermint:latest
     restart: always
     networks:
-      - dokploy-network
+      - nexploy-network
     depends_on:
       peppermint-postgres:
         condition: service_healthy
@@ -33,7 +33,7 @@ services:
       SECRET: ${SECRET}
 
 networks:
-  dokploy-network:
+  nexploy-network:
     external: true
 
 volumes:
